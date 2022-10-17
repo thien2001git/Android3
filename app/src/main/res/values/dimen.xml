@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normal">64dp</dimen>
+    <dimen name="normal_sp">64sp</dimen>
+    <dimen name="ten_nd">32sp</dimen>
+    <dimen name="ngan">10dp</dimen>
+    <dimen name="dai">20sp</dimen>
+</resources>
