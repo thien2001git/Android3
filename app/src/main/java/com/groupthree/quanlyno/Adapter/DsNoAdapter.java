@@ -43,8 +43,10 @@ public class DsNoAdapter extends RecyclerView.Adapter{
         }
     }
     public static class Model{
+        public static NguoiNoDAO dao;
         @RequiresApi(api = Build.VERSION_CODES.O)
         public Model(No value) {
+
 
             NguoiNo n = dao.selectId(value.getIdNguoiNo());
             anh = n.getAnh();
@@ -65,11 +67,11 @@ public class DsNoAdapter extends RecyclerView.Adapter{
 
 
     ArrayList<Model> models;
-    static NguoiNoDAO dao;
+
     public DsNoAdapter(Context context, ArrayList<Model> models) {
         this.context = context;
         this.models = models;
-        dao = new NguoiNoDAO(context);
+        Model.dao = new NguoiNoDAO(context);
     }
 
     @NonNull

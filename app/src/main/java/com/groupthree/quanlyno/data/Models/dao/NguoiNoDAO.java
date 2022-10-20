@@ -9,6 +9,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 
@@ -37,6 +38,7 @@ public class NguoiNoDAO extends AbstractDAO<NguoiNo> {
         super(ctx);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Boolean insert(NguoiNo value) {
         ContentValues values = new ContentValues();
@@ -52,7 +54,7 @@ public class NguoiNoDAO extends AbstractDAO<NguoiNo> {
             values.put(COL_CMND, value.getCmnd());
             values.put(COL_SDT, value.getSdt());
             values.put(COL_EMAIL, value.getEmail());
-            values.put(COL_NGAY_SINH, value.getNgaySinh() == null ? "" : value.getNgaySinh().toString());
+            values.put(COL_NGAY_SINH, value.getNgaySinh() == null ? "" : PhuongThuc1.localDateTimeToString(value.getNgaySinh()));
             values.put(COL_GIOI_TINH, value.getGioiTinh() == true ? "1" : "0");
             dbw.insert(TABLE_NAME, null, values);
 //        values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
@@ -131,6 +133,7 @@ public class NguoiNoDAO extends AbstractDAO<NguoiNo> {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Boolean update(NguoiNo value) {
         ContentValues values = new ContentValues();
@@ -145,7 +148,7 @@ public class NguoiNoDAO extends AbstractDAO<NguoiNo> {
             values.put(COL_CMND, value.getCmnd());
             values.put(COL_SDT, value.getSdt());
             values.put(COL_EMAIL, value.getEmail());
-            values.put(COL_NGAY_SINH, value.getNgaySinh() == null ? "" : value.getNgaySinh().toString());
+            values.put(COL_NGAY_SINH, value.getNgaySinh() == null ? "" : PhuongThuc1.localDateTimeToString(value.getNgaySinh()));
             values.put(COL_GIOI_TINH, value.getGioiTinh().booleanValue() == true ? "1" : "0");
             dbw.update(TABLE_NAME, values, COL_ID + "=?", new String[]{value.getId().toString()});
 //        values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
@@ -174,11 +177,11 @@ public class NguoiNoDAO extends AbstractDAO<NguoiNo> {
 
         NguoiNo obj = new NguoiNo();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
         LocalDateTime dateTime = null;
 
         try {
-            dateTime = LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(COL_NGAY_SINH)), formatter);
+            dateTime = PhuongThuc1.stringToLocalDateTime(cursor.getLong(cursor.getColumnIndex(COL_NGAY_SINH)));
 
         } catch (Exception e) {
             e.printStackTrace();

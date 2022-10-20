@@ -8,6 +8,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.Models.No;
 
@@ -32,6 +33,7 @@ public class NoDao extends AbstractDAO<No>{
         super(ctx);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Boolean insert(No value) {
         ContentValues values = new ContentValues();
@@ -40,9 +42,9 @@ public class NoDao extends AbstractDAO<No>{
             values.put(COL_SO_TIEN_VAY, value.getSoTienVay());
             values.put(COL_LAI_SUAT, value.getLaiSuat());
             values.put(COL_SO_CAN_TRA_CON_lAI, value.getSoCanTraConLai());
-            values.put(COL_NGAY_CHO_VAY, value.getNgayChoVay().toString());
+            values.put(COL_NGAY_CHO_VAY, PhuongThuc1.localDateTimeToString(value.getNgayChoVay()));
             values.put(COL_TONG_SO_CAN_TRA, value.getTongSoCanTra());
-            values.put(COL_HAN_CUOI, value.getHanCuoi().toString());
+            values.put(COL_HAN_CUOI, PhuongThuc1.localDateTimeToString(value.getHanCuoi()));
             values.put(COL_HINH_THUC_VAY, value.getHinhThucVay());
             values.put(COL_TRANG_THAI, value.getTrangThai());
             values.put(COL_GHI_CHU, value.getGhiChu());
@@ -106,6 +108,7 @@ public class NoDao extends AbstractDAO<No>{
         return list;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Boolean update(No value) {
         ContentValues values = new ContentValues();
@@ -115,9 +118,9 @@ public class NoDao extends AbstractDAO<No>{
             values.put(COL_SO_TIEN_VAY, value.getSoTienVay());
             values.put(COL_LAI_SUAT, value.getLaiSuat());
             values.put(COL_SO_CAN_TRA_CON_lAI, value.getSoCanTraConLai());
-            values.put(COL_NGAY_CHO_VAY, value.getNgayChoVay().toString());
+            values.put(COL_NGAY_CHO_VAY, PhuongThuc1.localDateTimeToString(value.getNgayChoVay()));
             values.put(COL_TONG_SO_CAN_TRA, value.getTongSoCanTra());
-            values.put(COL_HAN_CUOI, value.getHanCuoi().toString());
+            values.put(COL_HAN_CUOI, PhuongThuc1.localDateTimeToString(value.getHanCuoi()));
             values.put(COL_HINH_THUC_VAY, value.getHinhThucVay());
             values.put(COL_TRANG_THAI, value.getTrangThai());
             values.put(COL_GHI_CHU, value.getGhiChu());
@@ -149,8 +152,8 @@ public class NoDao extends AbstractDAO<No>{
         No obj = new No();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        @SuppressLint("Range") LocalDateTime dateTime = LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(COL_NGAY_CHO_VAY)), formatter);
-        @SuppressLint("Range") LocalDateTime dateTime1 = LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(COL_HAN_CUOI)).substring(0,10), formatter);
+        @SuppressLint("Range") LocalDateTime dateTime = PhuongThuc1.stringToLocalDateTime(cursor.getLong(cursor.getColumnIndex(COL_NGAY_CHO_VAY)));
+        @SuppressLint("Range") LocalDateTime dateTime1 = PhuongThuc1.stringToLocalDateTime(cursor.getLong(cursor.getColumnIndex(COL_HAN_CUOI)));
 
         obj.setId(cursor.getInt(cursor.getColumnIndex(COL_ID)));
         obj.setIdNguoiNo(cursor.getInt(cursor.getColumnIndex(COL_ID_NGUOI_NO)));
@@ -167,6 +170,6 @@ public class NoDao extends AbstractDAO<No>{
     }
 
     public String strProcess(String s){
-        return 
+        return s.replace("T", " ").substring(0, s.indexOf("."));
     }
 }

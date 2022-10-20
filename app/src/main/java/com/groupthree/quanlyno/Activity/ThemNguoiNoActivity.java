@@ -22,6 +22,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
@@ -90,7 +91,7 @@ public class ThemNguoiNoActivity extends AppCompatActivity {
                 public void onDateSet(DatePicker view, int year,
                                       int monthOfYear, int dayOfMonth) {
 
-                    ngaySinh = LocalDateTime.of(year, monthOfYear, dayOfMonth, 0, 0);
+                    ngaySinh = LocalDateTime.of(year, monthOfYear + 1, dayOfMonth, 0, 0);
                     edit_ngaySinh.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             };
@@ -171,15 +172,17 @@ public class ThemNguoiNoActivity extends AppCompatActivity {
                 NguoiNoDAO dao = new NguoiNoDAO(this);
                 if(dao.insert(obj)){
                     Toast.makeText(this, "Thêm thành công", Toast.LENGTH_LONG).show();
+                    PhuongThuc1.toDsNguoiNoAcyivity(this);
+
+                    finish();
+
                 } else {
                     Toast.makeText(this, "Lỗi thêm", Toast.LENGTH_LONG).show();
                 }
 
 
 
-                Intent i = new Intent(this, DsNguoiNoActivity.class);
-                startActivity(i);
-                finish();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -26,6 +26,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
     NguoiNo obj;
     ImageView img_avatar;
     TextView tv_ten;
+    TextView tv_sdt;
     TextView tv_email;
     TextView tv_cmnd;
     TextView tv_moi_quan_he;
@@ -55,6 +56,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
 
         img_avatar = findViewById(R.id.img_avatar);
         tv_ten = findViewById(R.id.tv_ten);
+        tv_sdt = findViewById(R.id.tv_sdt);
         tv_email = findViewById(R.id.tv_email);
         tv_cmnd = findViewById(R.id.tv_cmnd);
         tv_moi_quan_he = findViewById(R.id.tv_moi_quan_he);
@@ -75,6 +77,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
             img_avatar.setImageBitmap(bitmap);
         }
         tv_ten.setText(obj.getTen());
+        tv_sdt.setText(obj.getSdt());
         tv_email.setText(obj.getEmail());
         tv_cmnd.setText(obj.getCmnd());
         tv_moi_quan_he.setText(obj.getMoiQuanHe());

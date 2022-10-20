@@ -1,19 +1,14 @@
 package com.groupthree.quanlyno.Activity;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,17 +26,11 @@ import com.groupthree.quanlyno.data.Models.No;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
 import com.groupthree.quanlyno.data.Models.dao.NoDao;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Currency;
-import java.util.Date;
-import java.util.Locale;
 
-public class ThemNoActivity extends AppCompatActivity {
+public class SuaNoActivity extends AppCompatActivity {
 
     AutoCompleteTextView edit_ten;
     AutoCompleteTextView edit_sdt;
@@ -69,7 +58,7 @@ public class ThemNoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_them_no);
+        setContentView(R.layout.activity_sua_no);
 
         tienList = new ArrayList<>();
 
@@ -240,11 +229,11 @@ public class ThemNoActivity extends AppCompatActivity {
 
                 no.updateChange();
                 if (noDao.insert(no)) {
-                    Toast.makeText(this, "Thêm nợ thành công!", Toast.LENGTH_LONG).show();
-                    PhuongThuc1.toDsNoAcyivity(ThemNoActivity.this);
+                    Toast.makeText(this, "Cập nhật nợ thành công!", Toast.LENGTH_LONG).show();
+                    PhuongThuc1.toDsNoAcyivity(this);
                     finish();
                 } else {
-                    Toast.makeText(this, "Thêm nợ không thành công!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Cập nhật nợ không thành công!", Toast.LENGTH_LONG).show();
                 }
 
 
