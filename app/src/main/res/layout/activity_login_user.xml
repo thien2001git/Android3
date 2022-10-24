@@ -10,18 +10,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#85672173"
-        >
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logobobackgout"/>
+                android:src="@drawable/logobobackgout" />
 
 
         </LinearLayout>
@@ -30,12 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="ĐĂNG NHẬP"
                 android:textColor="#fff"
-                android:gravity="center"
                 android:textSize="35dp" />
 
         </LinearLayout>
@@ -44,48 +46,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="   Tên đăng nhập"
-                android:textColor="#fff"/>
+                android:textColor="#fff" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="   Mật khẩu"
-                android:textColor="#fff"/>
+                android:textColor="#fff" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="60dp"
-                android:layout_marginLeft="60dp"
-                android:text="Đăng "
                 android:background="#673AB7"
-                android:textColor="#fff"/>
+                android:text="Đăng "
+                android:textColor="#fff" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quên mật khẩu 5669"
                 android:gravity="center"
-                android:textColor="#fff"/>
+                android:text="Quên mật khẩu 5669"
+                android:textColor="#fff" />
         </LinearLayout>
 
     </LinearLayout>
