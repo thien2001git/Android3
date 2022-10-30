@@ -90,6 +90,21 @@ public class NoDao extends AbstractDAO<No>{
         }
         return null;
     }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//
+//    public byte[] selectAnh(Integer id) {
+//        Cursor cursor = dbr.rawQuery(String.format("SELECT * FROM %s WHERE id = ?", TABLE_NAME), new String[]{id.toString()});
+//
+//
+//        if (cursor.moveToFirst()) {
+//            while (!cursor.isAfterLast()) {
+//
+//                return cursorToObj(cursor);
+////                cursor.moveToNext();
+//            }
+//        }
+//        return null;
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -133,6 +148,8 @@ public class NoDao extends AbstractDAO<No>{
         }
         return false;
     }
+
+
 
     @Override
     public Boolean delete(Integer id) {

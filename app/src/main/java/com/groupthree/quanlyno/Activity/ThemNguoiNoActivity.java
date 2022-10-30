@@ -22,6 +22,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
@@ -169,8 +170,8 @@ public class ThemNguoiNoActivity extends AppCompatActivity {
                 obj.setNgaySinh(ngaySinh);
                 obj.setGioiTinh(gioiTinh);
 
-                NguoiNoDAO dao = new NguoiNoDAO(this);
-                if(dao.insert(obj)){
+
+                if(DoiTuong.NGUOI_NO_DAO.insert(obj)){
                     Toast.makeText(this, "Thêm thành công", Toast.LENGTH_LONG).show();
                     PhuongThuc1.toDsNguoiNoAcyivity(this);
 
@@ -204,4 +205,9 @@ public class ThemNguoiNoActivity extends AppCompatActivity {
         return byteBuffer.toByteArray();
     }
 
+    @Override
+    public void onBackPressed() {
+        // your code.
+        finish();
+    }
 }

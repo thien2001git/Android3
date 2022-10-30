@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.groupthree.quanlyno.Adapter.DsNoAdapter;
 import com.groupthree.quanlyno.Fragment.CategoryFragment;
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.No;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class DsNoActivity extends AppCompatActivity {
 
     RecyclerView rcv_ds_no;
-    NoDao dao;
+
     ArrayList<No> list;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -31,12 +32,12 @@ public class DsNoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ds_no);
 
         rcv_ds_no = findViewById(R.id.rcv_ds_no);
-        dao = new NoDao(this);
 
-        list = dao.selectAll();
+
+        list = DoiTuong.NO_DAO.selectAll();
 
         ArrayList<DsNoAdapter.Model> models = new ArrayList<>();
-        DsNoAdapter.Model.dao = new NguoiNoDAO(this);
+//        DsNoAdapter.Model.dao = new NguoiNoDAO(this);
         for (int i = 0; i < list.size(); i++) {
             models.add(new DsNoAdapter.Model(list.get(i)));
         }
@@ -60,6 +61,7 @@ public class DsNoActivity extends AppCompatActivity {
 //                i.putExtra("nguoi", json);
                 i.putExtra("no", bundle);
                 startActivity(i);
+                finish();
 
             }
 
@@ -68,5 +70,14 @@ public class DsNoActivity extends AppCompatActivity {
                 // do whatever
             }
         }));
+    }
+    @Override
+    public void onBackPressed() {
+        // your code.
+        Intent i = new Intent(this, MainScreenActivity.class);
+//        MainScreenActivity.STATUS_ID = MainScreenActivity.CATEGORY_ID;
+
+        startActivity(i);
+        finish();
     }
 }

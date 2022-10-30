@@ -122,22 +122,22 @@ public class CategoryFragment extends Fragment {
 
         rcv_category = v.findViewById(R.id.rcv_category);
 
-        CategoryAdapter.Model[] models = new CategoryAdapter.Model[4];
+        CategoryAdapter.Model[] models = new CategoryAdapter.Model[2];
 
-        models[0] = new CategoryAdapter.Model();
-        models[0].ten = "Danh bạ";
-        models[0].src = R.drawable.ic_baseline_person_24;
+        int dem = 0;
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Danh bạ";
+        models[dem].src = R.drawable.ic_baseline_person_24;
+        dem++;
 
-        models[1] = new CategoryAdapter.Model();
-        models[1].ten = "Danh sách nợ";
-        models[1].src = R.drawable.ic_baseline_monetization_on_24;
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Danh sách nợ";
+        models[dem].src = R.drawable.ic_baseline_monetization_on_24;
+        dem++;
 
-        for (int i = 2; i < 4; i++) {
 
-            models[i] = new CategoryAdapter.Model();
-            models[i].ten = "Danh bạ";
-            models[i].src = R.drawable.ic_baseline_person_24;
-        }
+
+
 
 
         CategoryAdapter adapter = new CategoryAdapter(getActivity(), models);
@@ -157,7 +157,10 @@ public class CategoryFragment extends Fragment {
                 if(position == 1) {
                     Intent i = new Intent(getActivity(), DsNoActivity.class);
                     startActivity(i);
+
                 }
+                getActivity().finish();
+
             }
 
             @Override public void onLongItemClick(View view, int position) {

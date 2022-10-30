@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
@@ -46,6 +47,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet_nguoi_no);
 
+//        DoiTuong.set(this);
 
 
         Bundle bundle = getIntent().getBundleExtra("nguoi");
@@ -106,15 +108,14 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
-                        NguoiNoDAO dao = new NguoiNoDAO(ChiTietNguoiNoActivity.this);
-                        if (dao.delete(obj.getId())) {
+                        if (DoiTuong.NGUOI_NO_DAO.delete(obj.getId())) {
                             Toast.makeText(ChiTietNguoiNoActivity.this, "Xóa thành công", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(ChiTietNguoiNoActivity.this, "Lỗi xóa", Toast.LENGTH_LONG).show();
                         }
                         Intent i = new Intent(ChiTietNguoiNoActivity.this, DsNguoiNoActivity.class);
                         startActivity(i);
-
+                        finish();
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -137,11 +138,19 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
             Bundle bundle1 = new Bundle();
             bundle1.putSerializable("nguoi", obj);
 
-//                i.putExtra("nguoi", json);
             i.putExtra("nguoi", bundle1);
             startActivity(i);
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, DsNguoiNoActivity.class);
+
+
+        startActivity(i);
+        finish();
     }
 }

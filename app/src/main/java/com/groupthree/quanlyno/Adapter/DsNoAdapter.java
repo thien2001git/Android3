@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.No;
@@ -43,17 +44,19 @@ public class DsNoAdapter extends RecyclerView.Adapter{
         }
     }
     public static class Model{
-        public static NguoiNoDAO dao;
+
         @RequiresApi(api = Build.VERSION_CODES.O)
         public Model(No value) {
 
 
-            NguoiNo n = dao.selectId(value.getIdNguoiNo());
-            anh = n.getAnh();
-            ten = n.getTen();
-            sdt = n.getSdt();
-            soCanTraConLai = value.getSoCanTraConLai().toString();
-            hanCuoi = value.getHanCuoi().toString();
+            NguoiNo n = DoiTuong.NGUOI_NO_DAO.selectId(value.getIdNguoiNo());
+            if(n != null) {
+                anh = n.getAnh();
+                ten = n.getTen();
+                sdt = n.getSdt();
+                soCanTraConLai = value.getSoCanTraConLai().toString();
+                hanCuoi = value.getHanCuoi().toString();
+            }
         }
         public byte[] anh;
         public String ten;
@@ -71,7 +74,7 @@ public class DsNoAdapter extends RecyclerView.Adapter{
     public DsNoAdapter(Context context, ArrayList<Model> models) {
         this.context = context;
         this.models = models;
-        Model.dao = new NguoiNoDAO(context);
+//        Model.dao = new NguoiNoDAO(context);
     }
 
     @NonNull

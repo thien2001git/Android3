@@ -85,6 +85,22 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+    public ArrayList<NgayTraNo> selectIdNo(Integer id) {
+        Cursor cursor = dbr.rawQuery(String.format("SELECT * FROM %s WHERE id_no = ?", TABLE_NAME), new String[]{id.toString()});
+
+        ArrayList<NgayTraNo> l = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+                l.add(cursorToObj(cursor));
+                cursor.moveToNext();
+            }
+        }
+        return l;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public ArrayList<NgayTraNo> selectSQL(String sql) {
         ArrayList<NgayTraNo> list = new ArrayList<>();

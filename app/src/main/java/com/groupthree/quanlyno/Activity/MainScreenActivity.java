@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import com.groupthree.quanlyno.Fragment.CategoryFragment;
 import com.groupthree.quanlyno.Fragment.HomeFragment;
 import com.groupthree.quanlyno.Fragment.SettingFragment;
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.Models.dao.NgayTraNoDAO;
@@ -46,6 +47,7 @@ public class MainScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
+        DoiTuong.set(this);
         homeFragment = new HomeFragment();
         categoryFragment = new CategoryFragment();
         settingFragment = new SettingFragment();
@@ -89,5 +91,11 @@ public class MainScreenActivity extends AppCompatActivity {
         }
 
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

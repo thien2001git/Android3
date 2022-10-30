@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
@@ -206,8 +207,8 @@ public class SuaNguoiNoActivity extends AppCompatActivity {
                 obj.setNgaySinh(ngaySinh);
                 obj.setGioiTinh(gioiTinh);
 
-                NguoiNoDAO dao = new NguoiNoDAO(this);
-                if(dao.update(obj)){
+
+                if(DoiTuong.NGUOI_NO_DAO.update(obj)){
                     Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
                     PhuongThuc1.toDsNguoiNoAcyivity(this);
                     finish();
@@ -238,4 +239,9 @@ public class SuaNguoiNoActivity extends AppCompatActivity {
         return byteBuffer.toByteArray();
     }
 
+    @Override
+    public void onBackPressed() {
+        // your code.
+        finish();
+    }
 }

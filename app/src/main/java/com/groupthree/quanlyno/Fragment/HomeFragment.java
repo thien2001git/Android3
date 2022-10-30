@@ -87,10 +87,12 @@ public class HomeFragment extends Fragment {
         btn_them_nguoi_no_moi.setOnClickListener(view -> {
             Intent i = new Intent(getActivity(), ThemNguoiNoActivity.class);
             startActivity(i);
+            getActivity().finish();
         });
         btn_them_no_moi.setOnClickListener(view -> {
             Intent i = new Intent(getActivity(), ThemNoActivity.class);
             startActivity(i);
+            getActivity().finish();
         });
 
 

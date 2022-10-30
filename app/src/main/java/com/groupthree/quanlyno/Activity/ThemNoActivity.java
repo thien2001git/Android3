@@ -24,6 +24,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
 import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
@@ -56,8 +57,7 @@ public class ThemNoActivity extends AppCompatActivity {
     RadioButton rbtn_thang;
     RadioButton rbtn_nam;
 
-    NguoiNoDAO nguoiNoDAO;
-    NoDao noDao;
+
     NguoiNo nguoiNo;
     ArrayList<NguoiNo> nguoiNoList;
     ArrayList<String> tienList;
@@ -74,10 +74,9 @@ public class ThemNoActivity extends AppCompatActivity {
         tienList = new ArrayList<>();
 
 
-        nguoiNoDAO = new NguoiNoDAO(this);
-        noDao = new NoDao(this);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            nguoiNoList = nguoiNoDAO.selectAll();
+            nguoiNoList = DoiTuong.NGUOI_NO_DAO.selectAll();
         }
 
         edit_ten = findViewById(R.id.edit_ten);
@@ -213,10 +212,10 @@ public class ThemNoActivity extends AppCompatActivity {
                 nguoiNo.setTen(edit_ten.getText().toString());
                 nguoiNo.setSdt(edit_sdt.getText().toString());
 
-                if (!nguoiNoDAO.insert(nguoiNo)) {
+                if (!DoiTuong.NGUOI_NO_DAO.insert(nguoiNo)) {
                     Log.i("hxt", "onCreate: thêm người ko tc");
                 } else {
-                    nguoiNo = nguoiNoDAO.selectTenVaSDT(nguoiNo);
+                    nguoiNo = DoiTuong.NGUOI_NO_DAO.selectTenVaSDT(nguoiNo);
                 }
             }
             try {
@@ -239,7 +238,7 @@ public class ThemNoActivity extends AppCompatActivity {
                 }
 
                 no.updateChange();
-                if (noDao.insert(no)) {
+                if (DoiTuong.NO_DAO.insert(no)) {
                     Toast.makeText(this, "Thêm nợ thành công!", Toast.LENGTH_LONG).show();
                     PhuongThuc1.toDsNoAcyivity(ThemNoActivity.this);
                     finish();
@@ -258,4 +257,9 @@ public class ThemNoActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        // your code.
+        finish();
+    }
 }
