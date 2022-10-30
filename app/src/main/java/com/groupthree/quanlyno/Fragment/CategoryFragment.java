@@ -17,6 +17,9 @@ import android.view.ViewGroup;
 
 import com.groupthree.quanlyno.Activity.DsNguoiNoActivity;
 import com.groupthree.quanlyno.Activity.DsNoActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoNguoiActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoSoTienActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoThoiGianActivity;
 import com.groupthree.quanlyno.Adapter.CategoryAdapter;
 import com.groupthree.quanlyno.R;
 
@@ -122,7 +125,7 @@ public class CategoryFragment extends Fragment {
 
         rcv_category = v.findViewById(R.id.rcv_category);
 
-        CategoryAdapter.Model[] models = new CategoryAdapter.Model[2];
+        CategoryAdapter.Model[] models = new CategoryAdapter.Model[5];
 
         int dem = 0;
         models[dem] = new CategoryAdapter.Model();
@@ -135,7 +138,20 @@ public class CategoryFragment extends Fragment {
         models[dem].src = R.drawable.ic_baseline_monetization_on_24;
         dem++;
 
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo thời gian";
+        models[dem].src = R.drawable.ic_baseline_calendar_today_24;
+        dem++;
 
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo người";
+        models[dem].src = R.drawable.ic_baseline_supervised_user_circle_24;
+        dem++;
+
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo số tiền";
+        models[dem].src = R.drawable.ic_baseline_money_24;
+        dem++;
 
 
 
@@ -159,6 +175,22 @@ public class CategoryFragment extends Fragment {
                     startActivity(i);
 
                 }
+                if(position == 2) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoThoiGianActivity.class);
+                    startActivity(i);
+
+                }
+                if(position == 3) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoNguoiActivity.class);
+                    startActivity(i);
+
+                }
+                if(position == 4) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoSoTienActivity.class);
+                    startActivity(i);
+
+                }
+
                 getActivity().finish();
 
             }
