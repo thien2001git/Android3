@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activity.ThongKeTheoNguoiActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <de.codecrafters.tableview.TableView-->
+    <!--        xmlns:table="http://schemas.android.com/apk/res-auto"-->
+    <!--        android:id="@+id/tb_data"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        table:tableView_columnCount="4" />-->
+
+    <ir.androidexception.datatable.DataTable
+        android:id="@+id/tb_data"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+
+    </ir.androidexception.datatable.DataTable>
+
+</LinearLayout>

@@ -5,5 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ThongKeTheoThoiGianActivity">
+    <ir.androidexception.datatable.DataTable
+        android:id="@+id/tb_data"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+
+    </ir.androidexception.datatable.DataTable>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
