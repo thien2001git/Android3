@@ -17,6 +17,9 @@ import android.view.ViewGroup;
 
 import com.groupthree.quanlyno.Activity.DsNguoiNoActivity;
 import com.groupthree.quanlyno.Activity.DsNoActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoNguoiActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoSoTienActivity;
+import com.groupthree.quanlyno.Activity.ThongKeTheoThoiGianActivity;
 import com.groupthree.quanlyno.Adapter.CategoryAdapter;
 import com.groupthree.quanlyno.R;
 
@@ -122,22 +125,35 @@ public class CategoryFragment extends Fragment {
 
         rcv_category = v.findViewById(R.id.rcv_category);
 
-        CategoryAdapter.Model[] models = new CategoryAdapter.Model[4];
+        CategoryAdapter.Model[] models = new CategoryAdapter.Model[5];
 
-        models[0] = new CategoryAdapter.Model();
-        models[0].ten = "Danh bạ";
-        models[0].src = R.drawable.ic_baseline_person_24;
+        int dem = 0;
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Danh bạ";
+        models[dem].src = R.drawable.ic_baseline_person_24;
+        dem++;
 
-        models[1] = new CategoryAdapter.Model();
-        models[1].ten = "Danh sách nợ";
-        models[1].src = R.drawable.ic_baseline_monetization_on_24;
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Danh sách nợ";
+        models[dem].src = R.drawable.ic_baseline_monetization_on_24;
+        dem++;
 
-        for (int i = 2; i < 4; i++) {
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo thời gian";
+        models[dem].src = R.drawable.ic_baseline_calendar_today_24;
+        dem++;
 
-            models[i] = new CategoryAdapter.Model();
-            models[i].ten = "Danh bạ";
-            models[i].src = R.drawable.ic_baseline_person_24;
-        }
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo người";
+        models[dem].src = R.drawable.ic_baseline_supervised_user_circle_24;
+        dem++;
+
+        models[dem] = new CategoryAdapter.Model();
+        models[dem].ten = "Thống kê theo số tiền";
+        models[dem].src = R.drawable.ic_baseline_money_24;
+        dem++;
+
+
 
 
         CategoryAdapter adapter = new CategoryAdapter(getActivity(), models);
@@ -157,7 +173,26 @@ public class CategoryFragment extends Fragment {
                 if(position == 1) {
                     Intent i = new Intent(getActivity(), DsNoActivity.class);
                     startActivity(i);
+
                 }
+                if(position == 2) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoThoiGianActivity.class);
+                    startActivity(i);
+
+                }
+                if(position == 3) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoNguoiActivity.class);
+                    startActivity(i);
+
+                }
+                if(position == 4) {
+                    Intent i = new Intent(getActivity(), ThongKeTheoSoTienActivity.class);
+                    startActivity(i);
+
+                }
+
+                getActivity().finish();
+
             }
 
             @Override public void onLongItemClick(View view, int position) {

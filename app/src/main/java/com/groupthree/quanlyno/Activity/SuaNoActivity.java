@@ -1,25 +1,23 @@
 package com.groupthree.quanlyno.Activity;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,18 +30,13 @@ import com.groupthree.quanlyno.data.Models.No;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
 import com.groupthree.quanlyno.data.Models.dao.NoDao;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Currency;
-import java.util.Date;
-import java.util.Locale;
 
-public class ThemNoActivity extends AppCompatActivity {
+public class SuaNoActivity extends AppCompatActivity {
 
+    ImageView img_avatar;
     AutoCompleteTextView edit_ten;
     AutoCompleteTextView edit_sdt;
     AutoCompleteTextView edit_so_tien_vay;
@@ -58,6 +51,7 @@ public class ThemNoActivity extends AppCompatActivity {
     RadioButton rbtn_nam;
 
 
+
     NguoiNo nguoiNo;
     ArrayList<NguoiNo> nguoiNoList;
     ArrayList<String> tienList;
@@ -65,20 +59,26 @@ public class ThemNoActivity extends AppCompatActivity {
     LocalDateTime hanCuoi;
     LocalDateTime ngayChoVay;
 
+    No obj;
+//    NguoiNo nguoiNo;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_them_no);
+        setContentView(R.layout.activity_sua_no);
 
         tienList = new ArrayList<>();
 
 
+        Bundle bundle = getIntent().getBundleExtra("no");
+        obj = (No) bundle.get("no");
+        nguoiNo = (NguoiNo) bundle.get("nguoiNo");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             nguoiNoList = DoiTuong.NGUOI_NO_DAO.selectAll();
         }
-
+        img_avatar = findViewById(R.id.img_avatar);
         edit_ten = findViewById(R.id.edit_ten);
         edit_sdt = findViewById(R.id.edit_sdt);
         edit_so_tien_vay = findViewById(R.id.edit_so_tien_vay);
@@ -91,6 +91,35 @@ public class ThemNoActivity extends AppCompatActivity {
         rbtn_ngay = findViewById(R.id.rbtn_ngay);
         rbtn_thang = findViewById(R.id.rbtn_thang);
         rbtn_nam = findViewById(R.id.rbtn_nam);
+
+
+
+        if(nguoiNo != null) {
+            if(nguoiNo.getAnh() != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(nguoiNo.getAnh(), 0, nguoiNo.getAnh().length);
+                img_avatar.setImageBitmap(bitmap);
+            }
+        }
+
+
+        edit_ten.setText(nguoiNo.getTen());
+        edit_sdt.setText(nguoiNo.getSdt());
+        edit_so_tien_vay.setText(obj.getSoTienVay().toString());
+        edit_lai_suat.setText(obj.getLaiSuat().toString());
+        edit_ngay_cho_vay.setText(obj.getNgayChoVay().toString());
+        edit_han_cuoi.setText(obj.getHanCuoi().toString());
+        edit_ghi_chu.setText(obj.getGhiChu());
+        if(obj.getHinhThucVay().equals(No.NGAY)) {
+            rbtn_ngay.setChecked(true);
+        }
+        if(obj.getHinhThucVay().equals(No.THANG)) {
+            rbtn_thang.setChecked(true);
+        }
+        if(obj.getHinhThucVay().equals(No.NAM)) {
+            rbtn_nam.setChecked(true);
+        }
+
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, NguoiNoDAO.tenNguoi(nguoiNoList));
@@ -183,7 +212,7 @@ public class ThemNoActivity extends AppCompatActivity {
         });
 
 
-        hanCuoi = LocalDateTime.now().plusDays(100);
+        hanCuoi = LocalDateTime.now().plusDays(365);
         edit_han_cuoi.setText(hanCuoi.getDayOfMonth() + "-" + hanCuoi.getMonthValue() + "-" + hanCuoi.getYear());
         edit_han_cuoi.setOnClickListener(v -> {
             //set dialog
@@ -220,6 +249,7 @@ public class ThemNoActivity extends AppCompatActivity {
             }
             try {
                 No no = new No();
+                no.setId(obj.getId());
                 no.setIdNguoiNo(nguoiNo.getId());
                 no.setNgayChoVay(ngayChoVay);
                 no.setHanCuoi(hanCuoi);
@@ -238,17 +268,18 @@ public class ThemNoActivity extends AppCompatActivity {
                 }
 
                 no.updateChange();
-                if (DoiTuong.NO_DAO.insert(no)) {
-                    Toast.makeText(this, "Thêm nợ thành công!", Toast.LENGTH_LONG).show();
-                    PhuongThuc1.toDsNoAcyivity(ThemNoActivity.this);
+                if (DoiTuong.NO_DAO.update(no)) {
+                    Toast.makeText(this, "Cập nhật nợ thành công!", Toast.LENGTH_LONG).show();
+                    PhuongThuc1.toDsNoAcyivity(this);
                     finish();
                 } else {
-                    Toast.makeText(this, "Thêm nợ không thành công!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Cập nhật nợ không thành công!", Toast.LENGTH_LONG).show();
                 }
 
 
             } catch (Exception e) {
                 e.printStackTrace();
+                Toast.makeText(this, "Cập nhật nợ không thành công!", Toast.LENGTH_LONG).show();
             }
 
 

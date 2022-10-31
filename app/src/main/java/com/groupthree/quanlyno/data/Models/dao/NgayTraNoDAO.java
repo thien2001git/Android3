@@ -9,6 +9,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.SqlLiteDbHelper;
 
@@ -30,6 +31,7 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Boolean insert(NgayTraNo value) {
 
 
@@ -37,7 +39,7 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
         ContentValues values = new ContentValues();
         try {
             values.put(COL_ID_NO, value.getIdNo());
-            values.put(COL_NGAY_TRA, value.getNgayTra().toString());
+            values.put(COL_NGAY_TRA, PhuongThuc1.localDateTimeToString(value.getNgayTra()));
             values.put(COL_SO_TIEN, value.getSoTien());
             dbw.insert(TABLE_NAME, null, values);
 //        values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
@@ -83,6 +85,22 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+    public ArrayList<NgayTraNo> selectIdNo(Integer id) {
+        Cursor cursor = dbr.rawQuery(String.format("SELECT * FROM %s WHERE id_no = ?", TABLE_NAME), new String[]{id.toString()});
+
+        ArrayList<NgayTraNo> l = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+                l.add(cursorToObj(cursor));
+                cursor.moveToNext();
+            }
+        }
+        return l;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public ArrayList<NgayTraNo> selectSQL(String sql) {
         ArrayList<NgayTraNo> list = new ArrayList<>();
@@ -99,6 +117,7 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
         return list;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Boolean update(NgayTraNo value) {
 
@@ -106,7 +125,7 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
         try {
 //            values.put(COL_ID, value.getId());
             values.put(COL_ID_NO, value.getIdNo());
-            values.put(COL_NGAY_TRA, value.getNgayTra().toString());
+            values.put(COL_NGAY_TRA, PhuongThuc1.localDateTimeToString(value.getNgayTra()));
             values.put(COL_SO_TIEN, value.getSoTien());
             dbw.update(TABLE_NAME, values, COL_ID+ "=?", new String[]{ value.getId().toString()});
 //        values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
@@ -136,7 +155,7 @@ public class NgayTraNoDAO extends AbstractDAO<NgayTraNo> {
         NgayTraNo ngayTraNo = new NgayTraNo();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        @SuppressLint("Range") LocalDateTime dateTime = LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(COL_NGAY_TRA)), formatter);
+        @SuppressLint("Range") LocalDateTime dateTime = PhuongThuc1.stringToLocalDateTime(cursor.getLong(cursor.getColumnIndex(COL_NGAY_TRA)));
 
         ngayTraNo.setNgayTra(dateTime);
         ngayTraNo.setId(cursor.getInt(cursor.getColumnIndex(COL_ID)));
