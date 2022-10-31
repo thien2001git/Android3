@@ -13,13 +13,17 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
+
+
             android:name=".Activity.ThongKeTheoSoTienActivity"
+
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
+
             android:name=".Activity.ThongKeTheoNguoiActivity"
             android:exported="false">
             <meta-data
@@ -63,6 +67,7 @@
         </activity>
         <activity
             android:name=".Activity.SuaNoActivity"
+
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
