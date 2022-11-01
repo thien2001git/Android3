@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
@@ -42,6 +43,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
     Button btn_sua;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +88,7 @@ public class ChiTietNguoiNoActivity extends AppCompatActivity {
         tv_nghe_nghiep.setText(obj.getNgheNghiep());
         tv_que_quan.setText(obj.getQueQuan());
         tv_dia_chi.setText(obj.getDiaChi());
-        tv_ngay_sinh.setText(obj.getNgaySinh()==null?"": obj.getNgaySinh().toString());
+        tv_ngay_sinh.setText(obj.getNgaySinh()==null?"": PhuongThuc1.toStringDate(obj.getNgaySinh()));
         tv_gioi_tinh.setText(obj.getGioiTinh() ? "Nam" : "Nữ");
 
 

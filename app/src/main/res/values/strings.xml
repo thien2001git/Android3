@@ -8,4 +8,16 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+
+    <string-array name="mang_cot_a">
+
+        <item>Đếm người nợ</item>
+        <item>Số tiền</item>
+        <item>Tháng</item>
+    </string-array>
+    <string-array name="mang_kieu">
+        <item>A-Z</item>
+        <item>Z-A</item>
+    </string-array>
 </resources>

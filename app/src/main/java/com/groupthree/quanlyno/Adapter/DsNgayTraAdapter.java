@@ -1,6 +1,7 @@
 package com.groupthree.quanlyno.Adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 
@@ -49,12 +52,13 @@ public class DsNgayTraAdapter extends RecyclerView.Adapter{
         return new DsNgayTraNoViewHolder(v);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         NgayTraNo it = list.get(position);
         DsNgayTraNoViewHolder holder1 = (DsNgayTraNoViewHolder) holder;
-        holder1.tv_ngay_tra.setText(it.getNgayTra().toString());
-        holder1.tv_so_tien_tra.setText(it.getSoTien().toString());
+        holder1.tv_ngay_tra.setText(PhuongThuc1.toStringDate(it.getNgayTra()));
+        holder1.tv_so_tien_tra.setText(PhuongThuc1.toStringMoney(it.getSoTien()));
     }
 
     @Override

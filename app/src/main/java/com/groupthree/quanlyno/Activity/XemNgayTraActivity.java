@@ -82,7 +82,7 @@ public class XemNgayTraActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
 
-                Intent i = new Intent(XemNgayTraActivity.this, ChiTietNoActivity.class);
+                Intent i = new Intent(XemNgayTraActivity.this, SuaNgayTraActivity.class);
 
 //                Gson gson = new Gson();
 //                String json = gson.toJson(list.get(position));
@@ -105,19 +105,28 @@ public class XemNgayTraActivity extends AppCompatActivity {
 
         btn_them.setOnClickListener(v -> {
             Intent i = new Intent(this, ThemNgayTraNoActivity.class);
-            Bundle bundle1 = new Bundle();
+//            Bundle bundle1 = new Bundle();
             bundle.putSerializable("no", obj);
             bundle.putSerializable("nguoiNo", nguoiNo);
 
 //                i.putExtra("nguoi", json);
             i.putExtra("no", bundle);
             startActivity(i);
+            finish();
         });
 
     }
     @Override
     public void onBackPressed() {
         // your code.
+        Intent i = new Intent(this, ChiTietNoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("no", obj);
+        bundle.putSerializable("nguoiNo", nguoiNo);
+
+//                i.putExtra("nguoi", json);
+        i.putExtra("no", bundle);
+        startActivity(i);
         finish();
     }
 }
