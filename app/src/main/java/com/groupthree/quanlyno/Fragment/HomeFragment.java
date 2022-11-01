@@ -2,17 +2,21 @@ package com.groupthree.quanlyno.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.groupthree.quanlyno.Activity.ThemNguoiNoActivity;
 import com.groupthree.quanlyno.Activity.ThemNoActivity;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 
 /**
@@ -75,6 +79,11 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+    TextView tv_tong_da_cho_vay;
+    TextView tv_sap_den_han;
+    TextView tv_no_moi;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,6 +92,13 @@ public class HomeFragment extends Fragment {
 
         btn_them_nguoi_no_moi = v.findViewById(R.id.btn_them_nguoi_no_moi);
         btn_them_no_moi = v.findViewById(R.id.btn_them_no_moi);
+        tv_tong_da_cho_vay = v.findViewById(R.id.tv_tong_da_cho_vay);
+        tv_sap_den_han = v.findViewById(R.id.tv_sap_den_han);
+        tv_no_moi = v.findViewById(R.id.tv_no_moi);
+
+        tv_tong_da_cho_vay.setText(PhuongThuc1.tong_so_da_cho_vay());
+        tv_no_moi.setText(PhuongThuc1.no_moi());
+        tv_sap_den_han.setText(PhuongThuc1.sap_toi_han());
 
         btn_them_nguoi_no_moi.setOnClickListener(view -> {
             Intent i = new Intent(getActivity(), ThemNguoiNoActivity.class);

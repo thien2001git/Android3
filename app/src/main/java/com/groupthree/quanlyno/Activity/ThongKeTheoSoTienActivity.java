@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.groupthree.quanlyno.Adapter.TableRowAdapter;
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.No;
@@ -42,7 +43,7 @@ public class ThongKeTheoSoTienActivity extends AppCompatActivity {
 
 
         public String[] toStringArray() {
-            return new String[] {id.toString(), name, soTien.toString(), daTra.toString(), conLai.toString() };
+            return new String[] {id.toString(), name, PhuongThuc1.toStringMoney(soTien), PhuongThuc1.toStringMoney(daTra), PhuongThuc1.toStringMoney(conLai) };
         }
 
     }

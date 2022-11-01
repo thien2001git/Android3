@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.groupthree.quanlyno.Adapter.TableRowAdapter;
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.No;
@@ -40,7 +41,7 @@ public class ThongKeTheoNguoiActivity extends AppCompatActivity {
         public Double trungBinh;
         public static String[] header = new String[] {"#", "Tên", "Tổng số", "Đếm", "Trung bình"};
         public String[] toStringArray() {
-            return new String[] {id.toString(), name, tongSo.toString(), dem.toString(), trungBinh.toString()};
+            return new String[] {id.toString(), name, PhuongThuc1.toStringMoney(tongSo), dem.toString(), PhuongThuc1.toStringMoney(trungBinh)};
         }
 
     }
