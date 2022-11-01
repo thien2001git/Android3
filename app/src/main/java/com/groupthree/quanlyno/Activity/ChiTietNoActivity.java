@@ -16,10 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
+import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.No;
 import com.groupthree.quanlyno.data.Models.dao.NguoiNoDAO;
+
+import java.util.ArrayList;
 
 public class ChiTietNoActivity extends AppCompatActivity {
 
@@ -70,6 +74,8 @@ public class ChiTietNoActivity extends AppCompatActivity {
         btn_xoa = findViewById(R.id.btn_xoa);
 
 
+        PhuongThuc1.updateSoCanTra(obj);
+
         nguoiNo = DoiTuong.NGUOI_NO_DAO.selectId(obj.getIdNguoiNo());
         if(nguoiNo != null) {
             if(nguoiNo.getAnh() != null) {
@@ -84,14 +90,14 @@ public class ChiTietNoActivity extends AppCompatActivity {
         }
         if(obj != null) {
 
-            tv_so_tien_vay.setText(obj.getSoTienVay().toString());
+            tv_so_tien_vay.setText(PhuongThuc1.toStringMoney(obj.getTongSoCanTra()));
             tv_lai_suat.setText(obj.getLaiSuat().toString());
             tv_kieu_lai.setText(obj.getHinhThucVay());
-            tv_ngay_cho_vay.setText(obj.getNgayChoVay().toString());
+            tv_ngay_cho_vay.setText(PhuongThuc1.toStringDate(obj.getNgayChoVay()));
             tv_ghi_chu.setText(obj.getGhiChu());
-            tv_han_cuoi.setText(obj.getHanCuoi().toString());
-            tv_tong_so_tien_can_tra.setText(obj.getTongSoCanTra().toString());
-            tv_so_tien_can_tra.setText(obj.getSoCanTraConLai().toString());
+            tv_han_cuoi.setText(PhuongThuc1.toStringDate(obj.getHanCuoi()));
+            tv_tong_so_tien_can_tra.setText(PhuongThuc1.toStringMoney(obj.getTongSoCanTra()));
+            tv_so_tien_can_tra.setText(PhuongThuc1.toStringMoney(obj.getSoCanTraConLai()));
         }
 
 

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NgayTraNo;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
@@ -81,9 +82,11 @@ public class ThemNgayTraNoActivity extends AppCompatActivity {
 
 
 
-            obj.setSoCanTraConLai(obj.getSoCanTraConLai() - soTien);
+
             if(DoiTuong.NGAY_TRA_NO_DAO.insert(ngayTraNo) &&
             DoiTuong.NO_DAO.update(obj)) {
+
+                PhuongThuc1.updateSoCanTra(obj);
                 Toast.makeText(this, "Thêm thành công", Toast.LENGTH_LONG).show();
 
 

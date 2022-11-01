@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.groupthree.quanlyno.PhuongThuc.DoiTuong;
+import com.groupthree.quanlyno.PhuongThuc.PhuongThuc1;
 import com.groupthree.quanlyno.R;
 import com.groupthree.quanlyno.data.Models.NguoiNo;
 import com.groupthree.quanlyno.data.Models.No;
@@ -54,8 +55,8 @@ public class DsNoAdapter extends RecyclerView.Adapter{
                 anh = n.getAnh();
                 ten = n.getTen();
                 sdt = n.getSdt();
-                soCanTraConLai = value.getSoCanTraConLai().toString();
-                hanCuoi = value.getHanCuoi().toString();
+                soCanTraConLai = PhuongThuc1.toStringMoney(value.getSoCanTraConLai());
+                hanCuoi = PhuongThuc1.toStringDate(value.getHanCuoi());
             }
         }
         public byte[] anh;
