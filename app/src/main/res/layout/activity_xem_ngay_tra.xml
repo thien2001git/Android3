@@ -51,7 +51,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="jsfak"
                     android:textColor="@color/black"
-                    android:textSize="20dp"/>
+                    android:textSize="@dimen/text_size_1"/>
 
             </LinearLayout>
 
@@ -72,7 +72,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="jsfak"
                     android:textColor="@color/black"
-                    android:textSize="20dp"/>
+                    android:textSize="@dimen/text_size_1"/>
 
             </LinearLayout>
 
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:text="Thêm"
             android:textColor="@color/black"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/text_size_1"/>
 
 
 

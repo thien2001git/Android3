@@ -14,12 +14,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="28dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Chọn cột xếp"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="@dimen/text_size_1" />
 
         <Spinner
             android:id="@+id/sp_chon_cot"
@@ -38,7 +38,7 @@
             android:layout_weight="1"
             android:text="Chọn kiểu"
             android:textColor="@color/black"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/text_size_1"/>
 
         <Spinner
             android:id="@+id/sp_chon_kieu"
@@ -53,6 +53,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"
-        android:textSize="20dp"/>
+        android:textSize="@dimen/text_size_1"/>
 
 </LinearLayout>

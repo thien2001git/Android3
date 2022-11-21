@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:text="Chọn cột xếp"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="@dimen/text_size_1" />
 
         <Spinner
             android:id="@+id/sp_chon_cot"
@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:text="Chọn kiểu"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="@dimen/text_size_1" />
 
         <Spinner
             android:id="@+id/sp_chon_kieu"
