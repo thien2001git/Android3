@@ -4,5 +4,6 @@
     <dimen name="normal_sp">64sp</dimen>
     <dimen name="ten_nd">32sp</dimen>
     <dimen name="ngan">10dp</dimen>
-    <dimen name="dai">20sp</dimen>
+    <dimen name="text_size_1">20sp</dimen>
+    <dimen name="text_size_2">18sp</dimen>
 </resources>

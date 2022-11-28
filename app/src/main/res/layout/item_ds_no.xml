@@ -30,7 +30,7 @@
                 android:layout_weight="1"
                 android:text="Tên: "
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_2"/>
             <TextView
                 android:id="@+id/tv_sdt"
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:layout_weight="1"
                 android:text="SDT: "
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_2"/>
             <TextView
                 android:id="@+id/tv_so_can_tra_con_lai"
                 android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:text="Số tiền còn nợ: "
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_2"/>
             <TextView
                 android:id="@+id/tv_han_cuoi"
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                 android:layout_weight="1"
                 android:text="Hạn cuối: "
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_2"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
