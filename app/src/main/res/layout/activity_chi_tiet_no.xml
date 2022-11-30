@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_1"
     android:orientation="vertical"
     tools:context=".Activity.ChiTietNoActivity">
 
@@ -17,6 +18,7 @@
             android:layout_height="match_parent"
 
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/img_avatar"
                 android:layout_width="128dp"
@@ -26,8 +28,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -44,8 +48,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -62,8 +66,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -81,8 +85,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -96,17 +100,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:inputType="numberDecimal"
-                    android:text="4"/>
+                    android:text="4" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Kiểu lãi" />
 
@@ -121,8 +125,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -140,8 +144,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -160,8 +164,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -176,10 +180,11 @@
                     android:layout_weight="3"
                     android:inputType="numberDecimal" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -198,8 +203,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
