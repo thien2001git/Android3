@@ -62,12 +62,14 @@
         android:id="@+id/wv_tb_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#9254de"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_1"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_table"
+        android:background="#fff1f0"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_2"/>
 </LinearLayout>
