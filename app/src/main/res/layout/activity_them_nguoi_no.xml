@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_1"
     android:orientation="vertical"
     tools:context=".Activity.ThemNguoiNoActivity">
 
@@ -37,6 +38,7 @@
                     android:id="@+id/btn_chon_anh"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="9dp"
                     android:layout_weight="3"
                     android:src="@drawable/ic_baseline_person_24" />
             </LinearLayout>
@@ -55,13 +57,16 @@
                 <EditText
                     android:id="@+id/edit_ten"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3" />
+                    android:layout_height="32dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="3"
+                    android:background="@color/white" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -73,14 +78,17 @@
                 <EditText
                     android:id="@+id/edit_sdt"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="3"
-                    android:inputType="phone"/>
+                    android:background="@color/white"
+                    android:inputType="phone" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -92,14 +100,17 @@
                 <EditText
                     android:id="@+id/edit_email"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="3"
-                    android:inputType="textEmailAddress"/>
+                    android:background="@color/white"
+                    android:inputType="textEmailAddress" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -111,11 +122,12 @@
                 <EditText
                     android:id="@+id/edit_cmnd"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="3"
-                    android:inputType="phone"/>
+                    android:background="@color/white"
+                    android:inputType="phone" />
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -142,6 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -195,6 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -211,9 +225,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:inputType="date"/>
+                        android:inputType="date" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -230,19 +245,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:orientation="horizontal">
+
                         <RadioButton
                             android:id="@+id/rbtn_nam"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nam"
-                            android:checked="true"/>
+                            android:checked="true"
+                            android:text="Nam" />
+
                         <RadioButton
                             android:id="@+id/rbtn_nu"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nữ"/>
+                            android:text="Nữ" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
@@ -261,6 +278,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Thêm" />
+
         <Button
             android:id="@+id/btn_them_thuoc_tinh"
             android:layout_width="0dp"
