@@ -78,6 +78,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_ngay_tra"
+                android:background="#fff1f0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -95,6 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#9254de"
             android:text="Thêm"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_1"/>
