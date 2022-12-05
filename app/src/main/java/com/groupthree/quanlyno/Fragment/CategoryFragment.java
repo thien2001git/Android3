@@ -131,7 +131,6 @@ public class CategoryFragment extends Fragment {
         models[dem] = new CategoryAdapter.Model();
         models[dem].ten = "Danh bạ";
         models[dem].src = R.drawable.ic_baseline_person_24;
-        models[dem].backGround = R.drawable.shape_2;
         dem++;
 
         models[dem] = new CategoryAdapter.Model();
