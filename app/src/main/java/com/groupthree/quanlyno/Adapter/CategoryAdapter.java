@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +21,12 @@ public class CategoryAdapter extends RecyclerView.Adapter {
 
         public String ten;
         public int src;
+        public int backGround;
     }
 
     public class CateforyViewHolder extends RecyclerView.ViewHolder {
 
+        public LinearLayout back_Ground;
         public ImageView img_icon;
         public TextView tv_name;
         public CateforyViewHolder(@NonNull View v) {
@@ -55,6 +58,7 @@ public class CategoryAdapter extends RecyclerView.Adapter {
         CateforyViewHolder holder1 = (CateforyViewHolder) holder;
         holder1.tv_name.setText(model.ten);
         holder1.img_icon.setImageResource(model.src);
+
     }
 
     @Override

@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="#25E6FF">
+            android:background="@drawable/shape_1">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:layout_marginStart="@dimen/ngan"
                     android:text="@string/chao"
                     android:gravity="center"
-                    android:textColor="#fff"/>
+                    android:textColor="#000"/>
 
                 <TextView
                     android:id="@+id/tv_ten_nd"
@@ -65,7 +65,7 @@
                     android:text="HXT"
                     android:gravity="center"
                     android:textSize="48dp"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textStyle="bold|italic" />
             </RelativeLayout>
 
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:text="Tổng đã cho vay" />
 
                 <TextView
@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="78,945,612"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textSize="@dimen/normal_sp" />
 
                 <LinearLayout
@@ -116,14 +116,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Sắp đến hạn"
-                            android:textColor="#fff"/>
+                            android:textColor="#000"/>
 
                         <TextView
                             android:id="@+id/tv_sap_den_han"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="1,525"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textSize="@dimen/dai" />
                     </LinearLayout>
 
@@ -137,7 +137,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:text="Nợ mới" />
 
                         <TextView
@@ -145,7 +145,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="1,525"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textSize="@dimen/dai" />
                     </LinearLayout>
 
@@ -170,7 +170,7 @@
                             android:src="@drawable/ic_baseline_add_24"/>
                         <TextView
                             android:layout_width="match_parent"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:layout_height="wrap_content"
                             android:text="Thêm nợ mới"
                             />
@@ -187,7 +187,7 @@
                             android:src="@drawable/ic_baseline_person_add_24"/>
                         <TextView
                             android:layout_width="match_parent"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:layout_height="wrap_content"
                             android:text="Người nợ mới"
                             />

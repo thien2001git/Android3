@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,7 +16,9 @@
             android:id="@+id/tv_ngay_tra"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"/>
+            android:layout_weight="6"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_1"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,6 +32,8 @@
             android:id="@+id/tv_so_tien_tra"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"/>
+            android:layout_weight="6"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_1"/>
     </LinearLayout>
 </LinearLayout>

@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.SuaNguoiNoActivity">
+    tools:context=".Activity.SuaNguoiNoActivity"
+    android:background="@drawable/shape_1">
 
 
     <ScrollView
@@ -118,13 +119,12 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:id="@+id/ln_them_truong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,6 +143,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -196,6 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -212,9 +214,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:inputType="date"/>
+                        android:inputType="date" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -231,19 +234,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:orientation="horizontal">
+
                         <RadioButton
                             android:id="@+id/rbtn_nam"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nam"
-                            android:checked="true"/>
+                            android:checked="true"
+                            android:text="Nam" />
+
                         <RadioButton
                             android:id="@+id/rbtn_nu"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nữ"/>
+                            android:text="Nữ" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
