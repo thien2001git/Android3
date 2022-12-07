@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.MainScreenActivity"
-    android:background="@drawable/shape_1">
+
+    android:background="@drawable/shape_1"
+    tools:context=".Activity.MainScreenActivity">
+
 
 
     <FrameLayout
